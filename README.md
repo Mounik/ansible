@@ -1,15 +1,36 @@
-Pour configurer les ordinateurs Windows pour être gérés par Ansible, vous devez d'abord installer l'agent Ansible sur chaque ordinateur, puis ajouter les informations d'authentification et les paramètres de connexion dans le fichier de configuration d'Ansible.
+Pour utiliser Ansible avec des ordinateurs Windows, vous devez d'abord configurer le protocole WinRM sur chaque ordinateur Windows cible, puis ajouter les informations d'authentification et les paramètres de connexion dans le fichier de configuration d'Ansible. Vous pouvez ensuite utiliser les modules Ansible pour Windows, tels que win_ping, win_shell et win_updates, pour exécuter des commandes et des scripts sur les ordinateurs Windows cibles.
 
-Voici les étapes générales pour configurer les ordinateurs Windows pour être gérés par Ansible:
+Voici un exemple de configuration d'un ordinateur Windows cible pour être géré par Ansible en utilisant WinRM:
 
-Téléchargez et installez l'agent Ansible sur chaque ordinateur Windows que vous souhaitez gérer. Vous pouvez utiliser l'installateur MSI pour Ansible sur https://releases.ansible.com/.
+Ouvrez une invite de commandes PowerShell en tant qu'administrateur sur l'ordinateur Windows cible et exécutez la commande suivante pour activer le protocole WinRM:
 
-Configurez l'authentification pour les ordinateurs Windows en utilisant l'un des mécanismes suivants:
+```
+winrm quickconfig
+```
 
-Authentification par nom d'utilisateur et mot de passe en utilisant le module winrm d'Ansible.
-Authentification par clé publique en utilisant le module winrm d'Ansible et en générant une clé SSH sur l'ordinateur local.
-Authentification par nom d'utilisateur et mot de passe en utilisant le protocole Kerberos d'Ansible.
-Ajoutez les informations d'authentification et les paramètres de connexion pour chaque ordinateur Windows dans le fichier de configuration d'Ansible. Par exemple:
+Ajoutez l'ordinateur Windows cible au groupe de sécurité "Remote Management Users" en utilisant la commande suivante:
+
+```
+net localgroup "Remote Management Users" <Nom_d'utilisateur> /add
+```
+
+Configurez les paramètres de sécurité pour WinRM en utilisant la commande suivante:
+
+```
+winrm set winrm/config/service/auth @{Basic="true"}
+winrm set winrm/config/service @{AllowUnencrypted="true"}
+winrm set winrm/config/winrs @{MaxMemoryPerShellMB="512"}
+```
+
+Redémarrez le service WinRM en utilisant la commande suivante:
+
+```
+Restart-Service winrm
+```
+
+Après avoir configuré le protocole WinRM sur l'ordinateur Windows, vous pouvez ajouter les informations d'authentification et les paramètres de connexion dans le fichier de configuration d'Ansible pour pouvoir établir une connexion à distance avec l'ordinateur Windows.
+
+Voici un exemple de configuration des informations d'authentification et des paramètres de connexion pour un ordinateur Windows cible dans le fichier de configuration d'Ansible:
 
 ```
 [windows]
