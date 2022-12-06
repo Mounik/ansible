@@ -1,0 +1,21 @@
+---
+# Playbook pour la mise à jour de plusieurs ordinateurs Windows
+
+- name: Mise à jour des ordinateurs Windows
+  hosts: windows
+  tasks:
+    # Détection des mises à jour sur chaque ordinateur
+    - name: Détection des mises à jour
+      win_updates:
+        category_names: ['Important']
+        state: detected
+
+    # Récupération de la liste des mises à jour disponibles
+    - name: Récupération de la liste des mises à jour
+      win_shell: wmic /node:localhost qfe list
+      register: updates
+
+    # Installation des mises à jour sur chaque ordinateur
+    - name: Installation des mises à jour
+      win_shell: wusa {{ item }} /quiet /norestart
+      with_items: "{{ updates.stdout_lines }}"
