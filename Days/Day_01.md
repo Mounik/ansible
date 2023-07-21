@@ -10,7 +10,7 @@ sudo apt install ansible
 ```
 <br>
 
-## Créer sa clefs SSH
+## Créer sa clef SSH
 ```bash
 ssh-keygen -t rsa
 ```
@@ -46,7 +46,7 @@ Destroy les containers
 
 ### Vérification de la présence des Hôtes
 ```
-ansible -i hosts.yml all -m ping   
+ansible -i inv.yml all -m ping   
 ```
 
 output :
