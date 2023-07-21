@@ -28,7 +28,7 @@ Le script [deploy.sh](Script/deploy-ansible.sh) permet de créer à la volée de
 
 [ Dépôt Gitlab Xavki](https://gitlab.com/xavki/presentation-ansible-fr/-/tree/master/14-plateforme-dev-docker)
 
-### Créer des container 
+### Créer des containers
 Déployer 2 containers
 ```bash
 ./deploy.sh -c 2
@@ -39,6 +39,11 @@ Créer son inventaire de container
 Cette commande crée un dossier ansible_dir qui contient l'inventaire le dossier host_vars et le dossier group_vars
 ```bash
 ./deploy.sh -a
+```
+
+Infos sur les containers
+```bash
+./deploy.sh -i
 ```
 
 Stopper les containers
