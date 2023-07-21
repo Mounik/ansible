@@ -29,5 +29,9 @@ Destroy les containers
 ./deploy.sh -d
 ```
 
+## Youtube
+[Playlist de Xavki pour tester tout ca](https://www.youtube.com/playlist?list=PLn6POgpklwWoCpLKOSw3mXCqbRocnhrh-)
 
-Enjopy !!
+<br>
+
+Enjoy !!

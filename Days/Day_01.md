@@ -15,6 +15,11 @@ sudo apt install ansible
 ssh-keygen -t rsa
 ```
 
+## Copier sa clef sur les serveurs distant
+```bash
+ssh-copy-id $USER@IP_des_nodes
+```
+
 ## Pour s'entrainer
 Le script [deploy.sh](Script/deploy-ansible.sh) permet de créer à la volée des containers avec podman pour tester ses playbook sur du Debian.
 
@@ -30,6 +35,8 @@ Déployer 2 containers
 ```
 
 Créer son inventaire de container
+
+Cette commande crée un dossier ansible_dir qui contient l'inventaire le dossier host_vars et le dossier group_vars
 ```bash
 ./deploy.sh -a
 ```
