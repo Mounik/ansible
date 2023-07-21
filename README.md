@@ -3,7 +3,7 @@
 ## Installation sur Ubuntu 22.04 LTS
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install software-properties-common
+sudo apt install -y software-properties-common sshpass
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt update
 sudo apt install ansible
