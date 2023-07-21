@@ -75,6 +75,4 @@ output :
 ## Youtube
 [Playlist de Xavki pour tester tout ca](https://www.youtube.com/playlist?list=PLn6POgpklwWoCpLKOSw3mXCqbRocnhrh-)
 
-<br>
-
 Enjoy !!
