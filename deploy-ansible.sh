@@ -85,11 +85,11 @@ stopContainers(){
 createAnsible(){
 	echo ""
   mkdir -p ${ANSIBLE_DIR}
-  echo "all:" > ${ANSIBLE_DIR}/hosts.yml
-  echo "  vars:" >> ${ANSIBLE_DIR}/hosts.yml
-  echo "    ansible_python_interpreter: /usr/bin/python3" >> ${ANSIBLE_DIR}/hosts.yml
-  echo "  hosts:" >> ${ANSIBLE_DIR}/hosts.yml
-  sudo podman ps -aq | awk '{system("sudo podman inspect -f \"{{.NetworkSettings.IPAddress}}:\" "$1)}' >> ${ANSIBLE_DIR}/hosts.yml
+  echo "all:" > ${ANSIBLE_DIR}/inv.yml
+  echo "  vars:" >> ${ANSIBLE_DIR}/inv.yml
+  echo "    ansible_python_interpreter: /usr/bin/python3" >> ${ANSIBLE_DIR}/inv.yml
+  echo "  hosts:" >> ${ANSIBLE_DIR}/inv.yml
+  sudo podman ps -aq | awk '{system("sudo podman inspect -f \"{{.NetworkSettings.IPAddress}}:\" "$1)}' >> ${ANSIBLE_DIR}/inv.yml
   mkdir -p ${ANSIBLE_DIR}/host_vars
   mkdir -p ${ANSIBLE_DIR}/group_vars
 	echo ""
