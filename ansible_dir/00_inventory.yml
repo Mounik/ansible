@@ -4,18 +4,11 @@ all:
       children:
         webserver:
           hosts:
-            10.88.0.4:
-            10.88.0.5:
-          vars:
-            var1: "webserver" # Variable pour le groupe "webserver"
+            10.88.0.6:
         dbserver:
           hosts:
-            10.88.0.4:
-            10.88.0.5:
-              var1: "10.88.0.5" # Variable uniquement pour le node "10.88.0.5"
-          vars:
-            var1: "dbserver" # Variable pour le groupe "dbserver"
-    monitoring:
-      children:
-        webserver:
-        dbserver:
+            10.88.0.8:
+            10.88.0.9:
+    nocommon:
+      hosts: 
+        10.88.0.7:
