@@ -27,7 +27,7 @@ ssh-keygen -t rsa
 ssh-copy-id $USER@IP_des_nodes
 ```
 
-### Créer des containers
+### Créer des containers (need 3 containers ATM)
 Déployer 2 containers
 ```bash
 ./deploy.sh -c 2
