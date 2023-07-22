@@ -56,12 +56,12 @@ Destroy les containers
 ```
 
 ### Vérification de la présence des Hôtes
-```
+```bash
 ansible -i inv.yml all -m ping   
 ```
 
 output :
-```
+```bash
 10.88.0.4 | SUCCESS => {
     "changed": false,
     "ping": "pong"
@@ -70,6 +70,16 @@ output :
     "changed": false,
     "ping": "pong"
 }
+```
+
+### Pour un inventaire en mode graphique
+```bash
+pip3 install ansible-inventory-grapher
+sudo apt install graphviz graphicsmagick-imagemagick-compat
+```
+ensuite entrer la commmande suivante
+```bash
+ansible-inventory-grapher -i inventory.yml all | dot -Tpng | display png:-
 ```
 
 ## Youtube
