@@ -1,0 +1,34 @@
+- name: Module File
+  hosts: all
+  become: yes
+
+  tasks:  
+  - name: Création d'un répertoire
+    file:
+      path: /repertoire_test
+      state: directory
+      mode: '0755'
+
+  - name: Création d'un lien symbolique
+    file:
+      src: /repertoire_test
+      dest: /tmp/link_test
+      owner: root
+      group: root
+      state: link
+
+  - name: Création d'un fichier
+    file:
+      path: /tmp/link_test/file.txt
+      state: touch
+      mode: 0644
+
+  - name: Suppression d'un fichier
+    file:
+      path: /tmp/link_test/file.txt
+      state: absent
+
+  - name: Suppression d'un répertoire
+    file:
+      path: /repertoire_test
+      state: absent

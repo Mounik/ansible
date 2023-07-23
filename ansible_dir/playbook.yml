@@ -1,34 +1,19 @@
-- name: Debut ansible
+- name: Module User
   hosts: all
   become: yes
 
-  tasks:  
-  - name: Création d'un répertoire
-    file:
-      path: /repertoire_test
-      state: directory
-      mode: '0755'
+  tasks:
+    - name: Création d'un User
+      user:
+        name: user
+        shell: /bin/bash
+        createhome: true
+        group: sudo # Pour lui permettre le sudo
+        uid: 1200 # Fixer l'UID
+        state: present
+        password: "{{ 'password' | password_hash('sha512') }}"
 
-  - name: Création d'un lien symbolique
-    file:
-      src: /repertoire_test
-      dest: /tmp/link_test
-      owner: root
-      group: root
-      state: link
-
-  - name: Création d'un fichier
-    file:
-      path: /tmp/link_test/file.txt
-      state: touch
-      mode: 0644
-
-  - name: Suppression d'un fichier
-    file:
-      path: /tmp/link_test/file.txt
-      state: absent
-
-  - name: Suppression d'un répertoire
-    file:
-      path: /repertoire_test
-      state: absent
+    - name: Suppression d'un user
+      user:
+        name: user
+        state: absent
