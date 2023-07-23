@@ -1,13 +1,5 @@
 all:
   children:
     common:
-      children:
-        webserver:
-          hosts:
-            10.88.0.2:
-        dbserver:
-          hosts:
-            10.88.0.3:
-    nocommon:
-      hosts: 
-        10.88.0.4:
+      hosts:
+        10.88.0.15:

@@ -1,0 +1,15 @@
+- name: Debut ansible
+  hosts: all
+  become: yes
+  tasks:
+  - name: check connection
+    ping: 
+  
+  - name: create directory
+    file:
+      path: "/tmp/mounik/1/2/3/4"
+      recurse: yes
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
