@@ -1,1 +1,5 @@
-var1: "full_server"
+mydico:
+- { dir: "mounik1", file: "fichierA" }
+- { dir: "mounik2", file: "fichierB" }
+- { dir: "mounik3", file: "fichierC" }
+- { dir: "mounik4", file: "fichierD" }
