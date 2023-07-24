@@ -1,0 +1,27 @@
+- name: Module stat
+  hosts: all
+  become: true
+
+  tasks:
+    - name: création du fichier mounik
+      file:
+        path: /tmp/mounik.txt
+        state: touch
+        owner: mounik
+        mode: 0644
+
+    - name: chack avec stat
+      stat:
+        path: /tmp/mounik.txt
+      register: __stat_mounik
+
+    - name: Affichage
+      debug:
+        msg: "{{ __stat_mounik.stat.exists }}"
+
+    - name: création d'un répertoire si le fichier existe
+      file:
+        path: /tmp/mounik
+        state: directory
+        mode: 0644
+      when: __stat_mounik.stat.exists
