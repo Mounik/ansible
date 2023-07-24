@@ -1,6 +1,7 @@
 all:
-  children:
-    common:
-      hosts:
-        10.88.0.2:
-        10.88.0.3:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  hosts:
+    10.88.0.2:
+    10.88.0.3:
+    10.88.0.4:
