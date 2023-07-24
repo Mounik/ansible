@@ -1,0 +1,37 @@
+- name: Boucle with
+  hosts: all
+  become: true
+
+  tasks:
+    # - name: mkdir dossier (list fournie en variables)
+    #   file:
+    #     state: directory
+    #     path: "/tmp/mounik/{{ item.dir }}"
+    #     recurse: yes
+    #   with_items:
+    #   - mounik1
+    #   - mounik2
+    #   - mounik3
+
+    # - name: création de fichiers (passage par le group_vars)
+    #   file:
+    #     path: "/tmp/mounik/{{ item.dir }}/{{ item.file }}"
+    #     state: directory
+    #     recurse: yes
+    #   with_items: "{{ mydico }}"
+
+    # - name: création de fichiers (choix d'un groupe)
+    #   file:
+    #     path: "/tmp/mounik/{{ item}}"
+    #     state: directory
+    #     recurse: yes
+    #   with_items:
+    #   - "{{ groups['all'] }}"
+
+    - name: création de fichiers (groupe dans l'inventaire)
+      file:
+        path: "/tmp/mounik/{{ item}}"
+        state: directory
+        recurse: yes
+      with_inventory_hostnames:
+      - all
