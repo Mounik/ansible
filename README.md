@@ -31,7 +31,7 @@ Si vous avez créer une clef a un autre endroit
 ssh-copy-id -i ~/.ssh/id_rsa.pub $USER@IP_des_nodes
 ```
 
-### Créer des containers (need 3 containers ATM)
+### Créer des containers
 Déployer 2 containers
 ```bash
 ./deploy.sh -c 2
