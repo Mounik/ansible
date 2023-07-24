@@ -1,6 +1,6 @@
 - name: Module User
   hosts: all
-  become: yes
+  become: true
 
   tasks:
     - name: Création d'un User
@@ -17,3 +17,4 @@
       user:
         name: user
         state: absent
+        remove: true
