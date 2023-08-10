@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 
 ###############################################################
-#  TITRE: 
+#  TITRE:
 #
 #  AUTEUR:    Xavier
-#  VERSION: 
-#  CREATION:  
+#  VERSION:
+#  CREATION:
 #  MODIFIE:   24/07/2023
 #
-#  DESCRIPTION: 
+#  DESCRIPTION:
 ###############################################################
 
 set -eo pipefail
@@ -22,7 +22,7 @@ ANSIBLE_DIR="ansible_dir"
 
 help(){
   echo "
-Usage: $0 
+Usage: $0
 -c <number> : create container and add the number of containers
 -i : information (ip and name)
 -s : start all containers created by this script
@@ -41,7 +41,7 @@ createContainers(){
   id_already=`sudo podman ps -a --format '{{ .Names}}' | awk -v user="${CONTAINER_USER}" '$1 ~ "^"user {count++} END {print count}'`
   id_min=$((id_already + 1))
   id_max=$((id_already + ${CONTAINER_NUMBER}))
-  
+
 	# Création des conteneurs en boucle
 	for i in $(seq $id_min $id_max);do
 		sudo podman run -d --systemd=true --publish-all=true --name ${CONTAINER_USER}-$i -h ${CONTAINER_USER}-$i docker.io/mounik/debian_12
@@ -102,7 +102,7 @@ help
 fi
 
 while getopts ":c:ahitsd" options; do
-  case "${options}" in 
+  case "${options}" in
 		a)
 			createAnsible
 			;;
