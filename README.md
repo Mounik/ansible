@@ -45,7 +45,7 @@ Déployer 2 containers
 ./deploy.sh -c 2
 ```
 
-Créer les fichiers pour démarrer
+### Créer les fichiers pour démarrer
 
 Cette commande crée un dossier ansible_dir qui contient l'inventaire le dossier host_vars et le dossier group_vars
 

@@ -1,10 +1,9 @@
+# ANSIBLE : TP ELK ET MONITORING - ELASTICSEARCH
+
 %title: ANSIBLE
 %author: xavki
 %Vidéos: [Formation Ansible](https://www.youtube.com/playlist?list=PLn6POgpklwWoCpLKOSw3mXCqbRocnhrh-)
 %blog: [Xavki Blog](https://xavki.blog)
-
-
-# ANSIBLE : TP ELK ET MONITORING - ELASTICSEARCH
 
 <br>
 
@@ -14,10 +13,9 @@ Dépôt : https://github.com/elastic/ansible-elasticsearch
 
 Objectifs : Elargir notre stack monitoring et logging + callback logstash à venir
 
-
 <br>
 
-* Stack vagrant :
+- Stack vagrant :
 
 ```
 	* 1 elasticsearch + logstash + kibana
@@ -26,14 +24,13 @@ Objectifs : Elargir notre stack monitoring et logging + callback logstash à ven
 
 Cf : fichier joint
 
-----------------------------------------------------------------------------------------
+---
 
 # ANSIBLE : TP ELK ET MONITORING - ELASTICSEARCH
 
-
 <br>
 
-* préparation de l'inventaire
+- préparation de l'inventaire
 
 ```
 all:
@@ -50,13 +47,13 @@ all:
           ansible_host: 192.168.13.10
 ```
 
-----------------------------------------------------------------------------------------
+---
 
 # ANSIBLE : TP ELK ET MONITORING - ELASTICSEARCH
 
 <br>
 
-* installation du rôle de la communauté
+- installation du rôle de la communauté
 
 ```
 mkdir -p roles group_vars host_vars
@@ -73,14 +70,13 @@ ou fichier requirements
 
 Rq : avec vagrant commenter du wait dans le main.yml (interface)
 
-----------------------------------------------------------------------------------------
+---
 
 # ANSIBLE : TP ELK ET MONITORING - ELASTICSEARCH
 
-
 <br>
 
-* variables pour ce rôle
+- variables pour ce rôle
 
 ```
     es_heap_size: "1g"
@@ -94,13 +90,13 @@ Rq : avec vagrant commenter du wait dans le main.yml (interface)
       node.data: true
 ```
 
-----------------------------------------------------------------------------------------
+---
 
 # ANSIBLE : TP ELK ET MONITORING - ELASTICSEARCH
 
 <br>
 
-* définition du playbook
+- définition du playbook
 
 ```
 - name: install eS
@@ -110,5 +106,3 @@ Rq : avec vagrant commenter du wait dans le main.yml (interface)
   roles:
     - elasticsearch
 ```
-
-
