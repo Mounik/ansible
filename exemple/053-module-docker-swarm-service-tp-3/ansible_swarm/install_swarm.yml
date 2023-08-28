@@ -1,8 +1,0 @@
-
-- name: install swarm cluster
-  hosts: all
-  become: yes
-  roles:
-  - docker
-  - swarm
-  - tooling

@@ -1,8 +1,0 @@
-- name: install servers
-  hosts: all
-  become: yes
-  roles:
-  - mariadb
-  - insert_data
-
-

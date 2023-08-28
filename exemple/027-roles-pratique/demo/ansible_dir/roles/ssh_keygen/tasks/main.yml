@@ -1,9 +1,0 @@
----
-
-- name: generate SSH key"
-  openssh_keypair:
-    path: /tmp/xavki
-    type: rsa
-    size: 4096
-    state: present
-    force: no

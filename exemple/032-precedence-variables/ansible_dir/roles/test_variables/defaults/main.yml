@@ -1,4 +1,0 @@
----
-# defaults file for roles/test_variables
-
-var1: "default role"
