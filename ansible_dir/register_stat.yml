@@ -10,7 +10,7 @@
         owner: mounik
         mode: 0644
 
-    - name: chack avec stat
+    - name: check avec stat
       stat:
         path: /tmp/mounik.txt
       register: __stat_mounik

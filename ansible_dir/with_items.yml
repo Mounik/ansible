@@ -30,8 +30,8 @@
 
     - name: création de fichiers (groupe dans l'inventaire)
       file:
-        path: "/tmp/mounik/{{ item}}"
+        path: "/tmp/mounik/{{ item }}"
         state: directory
-        recurse: yes
+        recurse: true
       with_inventory_hostnames:
-      - all
+        - all

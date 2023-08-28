@@ -1,0 +1,23 @@
+---
+- name: Configure UFW Rules
+  hosts: all
+  become: true
+
+  vars:
+    allowed_ip: "127.0.0.1" # IP du Bureau ou IP VPN
+
+  tasks:
+    - name: Ensure UFW is installed
+      apt:
+        name: ufw
+        state: present
+
+    - name: Allow incoming SSH traffic from the specific IP
+      ufw:
+        rule: allow
+        port: "22"
+        from_ip: "{{ allowed_ip }}"
+
+    - name: Ensure UFW is enabled
+      ufw:
+        state: enabled

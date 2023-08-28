@@ -1,18 +1,17 @@
 - name: Mise à jour avec APT
   hosts: all
-  become: yes
+  become: true
 
   tasks:
     - name: Mise à jour du cache et install haproxy avec la dernière version
       apt:
         name: haproxy
-        update_cache: yes
+        update_cache: true
         cache_valid_time: 3600
-        #state: latest (met à jour a chaque fois que le playbook est joué)
 
     - name: Désinstallation du package "haproxy"
       apt:
         name: haproxy
         state: absent
-        purge: yes
-        autoremove: yes
+        purge: true
+        autoremove: true

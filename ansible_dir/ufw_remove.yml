@@ -1,0 +1,28 @@
+---
+- name: Remove UFW Rules
+  hosts: all
+  become: true
+
+  vars:
+    remove_ip: "127.0.0.1" # IP de la règle à retirer
+
+  tasks:
+    - name: Ensure UFW is installed
+      apt:
+        name: ufw
+        state: present
+
+    - name: Delete incoming SSH traffic from the specific IP
+      ufw:
+        delete: true
+        rule: allow
+        port: "22"
+        from_ip: "{{ remove_ip }}"
+
+    - name: Ensure UFW is enabled
+      ufw:
+        state: enabled
+
+    - name: Reload UFW
+      ufw:
+        state: reloaded
