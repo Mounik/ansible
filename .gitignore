@@ -1,6 +1,7 @@
 # Ignorer vscode
-.vscode/
+/.vscode/
 
 # Ignorer les notes et le dossier images
 notes
-images/
+/images/
+
