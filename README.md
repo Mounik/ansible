@@ -22,7 +22,7 @@ Le script [deploy.sh](Script/deploy-ansible.sh) permet de créer à la volée de
 ## Créer sa clef SSH
 
 ```bash
-ssh-keygen -t rsa
+ssh-keygen -t ed25519
 ```
 
 ## Copier sa clef sur les serveurs distant
