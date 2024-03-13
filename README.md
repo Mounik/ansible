@@ -34,7 +34,7 @@ ssh-copy-id $USER@IP_des_nodes
 Si vous avez créer une clef a un autre endroit
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub $USER@IP_des_nodes
+ssh-copy-id -i ~/.ssh/id_ed25519.pub $USER@IP_des_nodes
 ```
 
 ### Créer des containers
