@@ -1,6 +1,6 @@
 # Ansible 
 
-## Installation sur Ubuntu 22.04 LTS
+## Installation sur Ubuntu 24.04 LTS
 
 ```bash
 sudo apt update && sudo apt upgrade -y
