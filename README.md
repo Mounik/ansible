@@ -12,7 +12,7 @@ sudo apt install ansible
 
 ## Pour s'entrainer
 
-Le script [deploy.sh](Script/deploy-ansible.sh) permet de créer à la volée des containers avec podman pour tester ses playbook sur du Debian.
+Le script [deploy-ansible.sh](deploy-ansible.sh) permet de créer à la volée des containers avec podman pour tester ses playbook sur du Debian.
 
 [Vidéo de Xavki pour le script podman](https://www.youtube.com/watch?v=Ia9nwOLernk&list=PLn6POgpklwWoCpLKOSw3mXCqbRocnhrh-&index=129)
 
